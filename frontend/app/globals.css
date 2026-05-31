@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --brand-primary: #4b173d;
+  --brand-primary-dark: #3a1130;
+  --brand-primary-light: #6b2558;
+  --brand-accent: #c99a6b;
+  --brand-accent-light: #dbb98f;
+  --brand-surface: #fff8f1;
+  --brand-surface-alt: #f4dde7;
+  --brand-ink: #211a1f;
+  --brand-muted: #8a747d;
+  --brand-star: #c99a6b;
+  --brand-star-empty: #e5c8d5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--brand-surface);
+  color: var(--brand-ink);
+  font-family: var(--font-arabic), "IBM Plex Sans Arabic", "Tajawal", "Cairo", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.container-page {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.premium-card {
+  border: 1px solid rgba(75, 23, 61, 0.12);
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 24px 80px rgba(75, 23, 61, 0.1);
+  backdrop-filter: blur(16px);
+}
+
+@layer components {
+  .brand-gradient-bar {
+    @apply h-1 bg-gradient-to-l from-gold via-plum-light to-gold;
+  }
+
+  .section-eyebrow {
+    @apply text-sm font-black tracking-wide text-gold;
+  }
+
+  .section-title {
+    @apply text-3xl font-black leading-tight text-plum md:text-4xl;
+  }
+
+  .section-desc {
+    @apply leading-8 text-taupe;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-plum px-8 py-4 font-black text-ivory shadow-premium transition hover:bg-plum-dark;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border bg-white px-8 py-4 font-black text-plum transition hover:shadow-card;
+    border-color: rgba(75, 23, 61, 0.15);
+  }
+
+  .trust-chip {
+    @apply rounded-full px-4 py-2 text-sm font-bold text-plum shadow-sm;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .review-card {
+    @apply relative overflow-hidden rounded-[2rem] border bg-white p-6 shadow-card;
+    border-color: rgba(75, 23, 61, 0.08);
+  }
+
+  .review-card::before {
+    content: "";
+    @apply absolute inset-x-0 top-0 h-1;
+    background: linear-gradient(to left, rgba(201, 154, 107, 0.8), #6b2558, rgba(201, 154, 107, 0.8));
+  }
+}

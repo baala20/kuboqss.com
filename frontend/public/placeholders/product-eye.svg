@@ -1,0 +1,8 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="600" rx="80" fill="#F4DDE7"/>
+  <ellipse cx="300" cy="275" rx="165" ry="88" fill="#FFF8F1"/>
+  <circle cx="300" cy="275" r="54" fill="#4B173D"/>
+  <circle cx="318" cy="258" r="14" fill="#C99A6B"/>
+  <rect x="190" y="400" width="220" height="48" rx="24" fill="#4B173D"/>
+  <text x="300" y="495" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#4B173D">Under Eye Care</text>
+</svg>

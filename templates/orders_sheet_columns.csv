@@ -1,0 +1,1 @@
+order_number,created_at,status,customer_name,phone_raw,phone_e164,phone_local,city,address,items_json,subtotal_lyd,discount_lyd,total_lyd,currency,source,landing_page,referrer,utm_source,utm_medium,utm_campaign,utm_content,utm_term,fbclid,fbc,fbp,ttclid,ttp,snapclid,event_id,client_ip,user_agent,sheet_sync_status,notes

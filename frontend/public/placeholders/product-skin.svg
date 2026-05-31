@@ -1,0 +1,8 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="600" rx="80" fill="#FFF8F1"/>
+  <circle cx="300" cy="250" r="145" fill="#F4DDE7"/>
+  <path d="M250 160h100l35 275H215l35-275z" fill="#C99A6B"/>
+  <rect x="242" y="225" width="116" height="120" rx="28" fill="#4B173D"/>
+  <text x="300" y="297" text-anchor="middle" font-family="Arial" font-size="44" font-weight="700" fill="#FFF8F1">K</text>
+  <text x="300" y="495" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#4B173D">Skin Glow</text>
+</svg>

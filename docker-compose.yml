@@ -1,0 +1,39 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: kuboqss
+      POSTGRES_USER: kuboqss
+      POSTGRES_PASSWORD: kuboqss
+    ports:
+      - "5432:5432"
+    volumes:
+      - kuboqss_postgres:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+    environment:
+      DATABASE_URL: postgresql://kuboqss:kuboqss@postgres:5432/kuboqss
+      FRONTEND_URL: http://localhost:3000
+      BACKEND_URL: http://localhost:8000
+      ALLOWED_ORIGINS: http://localhost:3000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./frontend
+    environment:
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+      BACKEND_URL: http://backend:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  kuboqss_postgres:
