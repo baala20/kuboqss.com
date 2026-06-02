@@ -115,20 +115,31 @@ http://localhost:3000
 
 ## Database Migration On Start
 
-Backend startup should run:
+Backend Docker uses `backend/scripts/docker-entrypoint.sh`:
+
+1. Runs `alembic upgrade head` (retries up to 30 times if Postgres is not ready yet).
+2. Starts Uvicorn on port `8000`.
+
+After deploy, confirm in backend logs:
 
 ```text
-alembic upgrade head
+[entrypoint] Migrations applied successfully.
 ```
 
-Then start app.
+Then open pgweb and check table `orders` exists.
 
-Implementation options:
+## If pgweb Is Empty (No Tables)
 
-- Entry script that runs migrations then Uvicorn.
-- Or FastAPI lifespan startup function that invokes Alembic.
+1. Open **kuboqss-backend** logs in EasyPanel.
+2. If you see `No module named 'psycopg2'`, redeploy backend from latest GitHub code (migrations must use `postgresql+psycopg://`).
+3. Confirm backend env `DATABASE_URL` matches the Postgres service (same host, db name, user, password):
 
-Prefer entry script in Docker for clarity, but still make local startup easy.
+```text
+postgres://kuboqss:kuboqss@kuboqss_database:5432/kuboqss?sslmode=disable
+```
+
+4. **Rebuild** backend (not only restart) so Docker image includes the new entrypoint.
+5. Test: `https://api.kuboqss.com/health` should return `"database": "connected"`.
 
 ## Google Sheet Webhook
 
